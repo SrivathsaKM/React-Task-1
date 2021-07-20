@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Listing Users</title>
+  </head>
+  <body>
+      <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.querySelector("#root")
+        
+    DZZ
+        
+        const ele = (
+            <div className="container">
+                <h1 style={{margin: "1em"}}>Listing Users - {users.length}</h1>
+                <table className="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Avatar</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">First Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {users.map((user,idx)=>{
+                            const{email, first_name, avatar} = user
+                            return ( 
+                                <tr key={idx}>
+                                    <td><img src={avatar} alt={first_name} /></td>
+                                     <td>{email}</td>
+                                    <td>{first_name}</td>                                
+                                </tr>
+                            )
+                        })}
+               
+                    </tbody>
+                </table>
+        </div>
+        )
+        ReactDOM.render(ele, rootHandle);
+    </script>
+  </body>
+</html>
+</html>

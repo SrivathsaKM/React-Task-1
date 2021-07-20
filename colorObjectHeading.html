@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Colors, Symbols & Display List Object</title>
+  </head>
+  <style>
+     *{
+      background-color: rgb(36, 22, 22);
+    }
+    h1{
+      color: rgb(150, 216, 233);
+      text-decoration: underline;
+    }
+  
+
+  </style>
+  <body>
+      <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.querySelector("#root")
+        
+        const colors = {
+                        red: ['energy', 'strength', 'power', 'courage'],
+                        blue: ['loyalty', 'trust', 'stability', 'confidence'],
+                        orange: ['excitment', 'fun', 'haste', 'action'],
+                        yellow: ['cheerfulness', 'happiness', 'joy', 'optimism']
+                        }
+
+        const ele = (  
+                <div style={{margin: '1em'}}>
+                <h1>All Colors, Symbols & Display List Object</h1>   
+                {Object.keys(colors).map((color, idx) => {
+                    return (
+                        <div key={idx}>
+                            <h2 style={{color:color}}>{color.toUpperCase()}</h2> 
+                            <ol>
+                            {colors[color].map((ele,idx) => {
+                                return <li key={idx} style={{color: 'whitesmoke'}}>{ele}</li>
+                            })}
+                            </ol>
+                        </div>
+                    )
+                })}  
+            </div>  
+       
+         )
+
+        ReactDOM.render(ele, rootHandle);
+    </script>
+  </body>
+</html>
+</html>

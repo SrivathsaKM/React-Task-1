@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Multiple Colors</title>
+  </head>
+  <style>
+    *{
+      background-color: rgb(36, 22, 22);
+    }
+    
+  </style>
+  <body>
+      <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.querySelector("#root")
+        
+        const colors = [
+                        { color: 'red', symbols: ['energy', 'strength', 'power', 'courage'] },
+                        { color: 'blue', symbols: ['loyalty', 'trust', 'stability', 'confidence']},
+                        { color: 'orange', symbols: ['excitment', 'fun', 'haste', 'action']},
+                        { color: 'yellow', symbols: ['cheerfulness', 'happiness', 'joy', 'optimism']}
+                      ]
+
+        const ele = (  
+          <div style={{margin: "1em"}}>
+              <h3 style={{color: 'rgb(150, 216, 233)'}}><u>Colors &  it's Symbols</u></h3>   
+              <ul>
+                  {colors.map((eachColor, idx) => {
+                      const{symbols, color} = eachColor
+                      return <li key={idx} className="colors" style={{color:color}}><strong>{color} - {symbols.join(", ")}</strong></li>
+                  })}
+              </ul>
+          </div>       
+        )
+
+        ReactDOM.render(ele, rootHandle);
+    </script>
+  </body>
+</html>
+</html>

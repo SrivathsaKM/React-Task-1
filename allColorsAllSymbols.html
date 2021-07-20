@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Color - All Symbol</title>
+  </head>
+    <style>
+  *{
+      background-color: rgb(36, 22, 22);
+    }
+    h1{
+      color: rgb(150, 216, 233);
+    }
+    .color{
+        color: whitesmoke;
+    }
+    .symbol:nth-child(n+0):nth-child(-n+4){
+        color: red;
+    }
+     .symbol:nth-child(n+5):nth-child(-n+8){
+        color: blue;
+    }
+      .symbol:nth-child(n+9):nth-child(-n+12){
+        color: orange;
+    }
+       .symbol:nth-child(n+13):nth-child(-n+16){
+        color: yellow;
+    }
+  </style>
+  <body>
+      <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+      //You are provided with an array of colors
+     // The array contains objects, with each object having a property color & symbols
+     // You need to display all the colors in one list and all the symbols in another list
+    //  The symbols should also be displayed in the color it belongs to
+        const rootHandle = document.querySelector("#root")
+        
+        const colors = [
+                        { color: 'red', symbols: ['energy', 'strength', 'power', 'courage'] },
+                        { color: 'blue', symbols: ['loyalty', 'trust', 'stability', 'confidence']},
+                        { color: 'orange', symbols: ['excitment', 'fun', 'haste', 'action']},
+                        { color: 'yellow', symbols: ['cheerfulness', 'happiness', 'joy', 'optimism']}
+                    ]
+
+         let Allsymbols = colors.map(function(ele){
+             return ele.symbols
+         })
+        //  Allsymbols = Allsymbols.flat()
+        //  console.log(Allsymbols)
+
+        const ele = (  
+            <section>
+                <div>
+                    <h1>All Colors</h1> 
+                    <ol>  
+                        {colors.map((eachColor,idx) => {
+                          const{color} = eachColor 
+                            return <li key={idx} className="color">{color}</li>
+                        })}
+                    </ol>
+                </div>
+                <div>
+                   <h1>All Symbol</h1>
+                   <ol>
+                    {colors.map((eachColor,idx) => {
+                      return eachColor.symbols.map((symbol,idx) => {
+                        return <li key={idx} style={{color: eachColor.color}}>{symbol}</li>
+                      })
+                    })}
+                   </ol>
+                </div>
+            </section>                  
+        )
+      
+        ReactDOM.render(ele, rootHandle);
+    </script>
+  </body>
+</html>
+</html>
